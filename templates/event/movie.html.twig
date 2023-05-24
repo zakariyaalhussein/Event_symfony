@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block body %}
+
+
+<div class="container ">
+        <div class="row row-cols-3 g-4" >
+
+          {% for event in events %}
+           <div>
+               <div class="card" style="width: 18rem;">
+                <a  href="{{ path('app_event_show', {'id': event.id}) }}">
+                <img  src="{{ event.picture }}" class="card-img-top" alt="...">
+                </a>
+               <div class="card-body">
+                <h5 class="card-title">{{ event.name }}</h5>
+                <p class="card-text">{{ event.eventdAt ? event.eventdAt|date('Y-m-d H:i:s') : '' }}</p>
+                
+               </div>
+             </div>
+            </div>
+           
+            {% endfor %}
+
+</div>
+</div>
+
+{% endblock %}
