@@ -5,13 +5,46 @@
 {% block body %}
 
 
+
+ <div class="card bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white" style="margin-top: 80px; background-image: url('https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_640.jpg'); height: 550px;">
+
+   <h1 class="mb-3 h1">Events in Vienna</h1>
+
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
+    labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
+    neque maiores dolorem unde? Aut dolorum quod excepturi fugit.
+  </p>
+  
+</div>
+
+
+<div class="container m-5">
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Musik</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Theater</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sport</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Movie</a>
+  </li>
+ 
+</ul>
+</div>
+    
+
 <div class="container ">
-        <div class="row row-cols-3 g-4" >
+        <div class="row row-cols-4 g-4" >
 
           {% for event in events %}
            <div>
-               <div class="card" style="width: 18rem;">
-                <a  href="{{ path('app_event_show', {'id': event.id}) }}">
+             <div class="card" style="width: 18rem;">
+             <a  href="{{ path('app_event_show', {'id': event.id}) }}">
                 <img  src="{{ event.picture }}" class="card-img-top" alt="...">
                 </a>
                <div class="card-body">

@@ -6,6 +6,7 @@ use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\MakerBundle\EventRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,6 +29,15 @@ class EventController extends AbstractController
             
         ]);
     }
+
+    // #[Route('/movie', name: 'app_event_movie')]
+    // public function movie(EventRegistry $eventRepository): Response
+    // {
+    //     return $this->render('event/movie.html.twig', [
+    //         'movies' => $eventRepository->
+    //     ]);
+    // }
+
 
    
 
@@ -84,5 +94,15 @@ class EventController extends AbstractController
         }
 
         return $this->redirectToRoute('app_event_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{type}/event', name: 'app_event_type', methods: ['GET'])]
+    public function showType( $type, EventRepository $eventRepository): Response
+    {
+       
+
+        return $this->render('event/movie.html.twig', [
+            'events' => $eventRepository->findBy(array("eventstype"=>$type)),
+        ]);
     }
 }
